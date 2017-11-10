@@ -2,7 +2,7 @@
   "name": "angular-quickstart",
   "version": "1.0.0",
   "engines": {
-    "node": "~6.11.0"
+    "node": "~6.11.1"
   },
   "description": "QuickStart package.json from the documentation, supplemented with testing support",
   "scripts": {
