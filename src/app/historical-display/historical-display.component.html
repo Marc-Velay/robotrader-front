@@ -1,0 +1,33 @@
+<div *ngIf="graphData">
+  <jqxChart #myChart
+      [width]="850" [height]="500"
+      [title]="'S&P 500 Candlestick Chart'"
+      [description]="'(October 1 00:00 - October 1 01:40)'"
+      [enableAnimations]="false" [enableCrosshairs]="true" [animationDuration]="1500"
+      [source]="dataAdapter" [xAxis]="xAxis"
+      [seriesGroups]="seriesGroups" [colorScheme]="'scheme17'"  [padding]="padding" >
+  </jqxChart>
+</div>
+
+<!--
+  <script>
+    console.log(graphData);
+  </script>
+<ul class="dataPoints">
+  <li *ngFor="let dataPoint of graphData">
+    <a routerLink="/historical">
+      <span class="badge">{{dataPoint.id}}</span> {{dataPoint.opening}}
+    </a>
+  </li>
+</ul>
+-->
+<!--
+<jqxChart #myChart
+    [width]="850" [height]="500"
+    [title]="'U.S. Stock Market Index Performance'"
+    [description]="'NASDAQ Composite compared to S&P 500'"
+    [showLegend]="true" [enableAnimations]="true" [padding]="padding"
+    [titlePadding]="titlePadding" [source]="dataAdapter2" [xAxis]="xAxis"
+    [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme04'">
+</jqxChart>
+-->

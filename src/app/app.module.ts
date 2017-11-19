@@ -9,13 +9,24 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent }         from './app.component';
+
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
+
+import { HistoricalDisplayComponent } from './historical-display/historical-display.component';
+
 import { HeroService }          from './hero.service';
+import { GraphDataService }          from './graphData.service';
+import { GraphDataSimpleService }          from './graphDataSimple.service';
 import { MessageService }       from './message.service';
 import { MessagesComponent }    from './messages/messages.component';
+
+import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
+
+//import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid';
+
 
 @NgModule({
   imports: [
@@ -37,9 +48,11 @@ import { MessagesComponent }    from './messages/messages.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    HistoricalDisplayComponent,
+    jqxChartComponent
   ],
-  providers: [ HeroService, MessageService ],
+  providers: [ HeroService, MessageService, GraphDataService, GraphDataSimpleService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

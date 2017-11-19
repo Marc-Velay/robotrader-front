@@ -10,11 +10,10 @@
     "build:watch": "tsc -p src/ -w",
     "build:e2e": "tsc -p e2e/",
     "serve": "ng serve",
-    "//": "serve: lite-server -c=bs-config.json",
+    "//": "concurrently \"npm run build:watch\" \"npm run serve\"",
     "serve:e2e": "lite-server -c=bs-config.e2e.json",
     "prestart": "npm run build",
     "start": "concurrently \" npm run build:watch \" \"npm run serve\"",
-    "//": "concurrently \"npm run build:watch\" \"npm run serve\"",
     "pree2e": "npm run build:e2e",
     "e2e": "concurrently \"npm run serve:e2e\" \"npm run protractor\" --kill-others --success first",
     "preprotractor": "webdriver-manager update",
@@ -30,6 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "@angular/animations": "~5.0.0",
+    "@angular/cli": "1.5.0",
     "@angular/common": "~5.0.0",
     "@angular/compiler": "~5.0.0",
     "@angular/compiler-cli": "~5.0.0",
@@ -43,11 +43,12 @@
     "@angular/upgrade": "~5.0.0",
     "angular-in-memory-web-api": "~0.5.0",
     "core-js": "^2.4.1",
+    "jqwidgets-scripts": "^5.4.0",
     "lite-server": "^2.3.0",
+    "ngx-line-chart": "^1.0.0",
     "rxjs": "^5.5.0",
     "web-animations-js": "^2.3.1",
-    "zone.js": "^0.8.4",
-    "@angular/cli": "1.5.0"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@types/jasmine": "~2.5.53",
