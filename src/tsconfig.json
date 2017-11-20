@@ -13,6 +13,6 @@
   },
   "include": [
       "src/**/*",
-      "node_modules/jqwidgets-scripts/**/*"
+      "../node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxchart*"
   ]
 }
