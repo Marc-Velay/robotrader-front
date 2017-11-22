@@ -3,9 +3,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { GraphDataPoint } from '../graphDataPoint';
 import { GraphDataService } from '../graphData.service';
 
-import { GraphDataPointSimple } from '../graphDataPointSimple';
-import { GraphDataSimpleService } from '../graphDataSimple.service';
-
 @Component({
   selector: 'app-historical-display',
   templateUrl: './historical-display.component.html',
@@ -14,22 +11,8 @@ import { GraphDataSimpleService } from '../graphDataSimple.service';
 })
 export class HistoricalDisplayComponent implements OnInit {
   graphData: GraphDataPoint[];
-  graphDataSimple: GraphDataPointSimple[];
-
-  graphDataOpening: string[];
-  graphDataClosing: string[];
-  graphDataLow: string[];
-  graphDataHigh: string[];
-  graphDataDate = [];
 
   months: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-  graphDataSim = [
-    {"id":1, "opening":"1", "date": "2017/10/9"},
-    {"id":2, "opening":"2", "date": "2017/10/8"},
-    {"id":3, "opening":"3", "date": "2017/10/7"},
-    {"id":4, "opening":"4", "date": "2017/10/6"},
-  ]
 
   source: any =
   {
@@ -41,26 +24,12 @@ export class HistoricalDisplayComponent implements OnInit {
           { name: 'low' },
           { name: 'closing' }
       ],
-      //url: './nasdaq_vs_sp500_detailed.txt'
       localdata: this.graphData
   };
-
-  source2: any =
-  {
-      datatype: 'json',
-      datafields: [
-          { name: 'date' },
-          { name: 'opening' },
-      ],
-      //url: './nasdaq_vs_sp500_detailed.txt'
-      localdata: this.graphDataSimple
-  };
-
-  constructor(private graphDataService: GraphDataService, private graphDataSimpleService: GraphDataSimpleService) { }
+  constructor(private graphDataService: GraphDataService) { }
 
   ngOnInit() {
     this.getGraphData();
-    //this.getGraphDataSimple();
   }
 
   getGraphData(): void {
@@ -72,72 +41,6 @@ export class HistoricalDisplayComponent implements OnInit {
       console.log(this.dataAdapter);
     });
   }
-/*getGraphDataSimple(): void {
-    this.graphDataSimpleService.getGraphDataSimple()
-    .subscribe(graphDataSimple => {
-      this.graphDataSimple = graphDataSimple;
-      console.log(this.graphDataSimple);
-      console.log(this.dataAdapter2);
-      this.source2.localdata = this.graphDataSimple;
-      this.dataAdapter2 = new jqx.dataAdapter(this.source2, { async: true, autoBind: true, loadError: (xhr: any, status: any, error: any) => { alert('Error loading "' + this.source2.localdata + '" : ' + error); } });
-
-    });
-  }
-*/
-
-/*dataAdapter2: any = new jqx.dataAdapter(this.source2, { async: true, autoBind: true, loadError: (xhr: any, status: any, error: any) => { alert('Error loading "' + this.source2.localdata + '" : ' + error); } });
-
-padding: any = { left: 10, top: 5, right: 10, bottom: 5 };
-
-titlePadding: any = { left: 50, top: 0, right: 0, bottom: 10 };
-
-xAxis: any =
-{
-    dataField: 'date',
-    formatFunction: (value: any) => {
-        return value.getDate() + '-' + this. months[value.getMonth()] + '-' + value.getFullYear();
-    },
-    type: 'date',
-    baseUnit: 'day',
-    valuesOnTicks: true,
-    minValue: '6-10-2017',
-    maxValue: '10-10-2017',
-    tickMarks: {
-        visible: true,
-        interval: 1,
-        color: '#BCBCBC'
-    },
-    unitInterval: 1,
-    gridLines: {
-        visible: true,
-        interval: 1,
-        color: '#BCBCBC'
-    },
-    labels: {
-        angle: -45,
-        rotationPoint: 'topright',
-        offset: { x: 0, y: -25 }
-    }
-};
-valueAxis: any =
-    {
-        visible: true,
-        title: { text: 'Daily Closing Price<br>' },
-        tickMarks: { color: '#BCBCBC' }
-    };
-
-seriesGroups: any =
-  [
-      {
-          type: 'line',
-          series: [
-              { dataField: 'opening', displayText: 'S&P 500' }
-          ]
-      }
-  ];
-*/
-
-
 
     dataAdapter = new jqx.dataAdapter(this.source, { async: true, autoBind: true, loadError: (xhr: any, status: any, error: any) => { alert('Error loading "' + this.source.localdata + '" : ' + error); } });
 

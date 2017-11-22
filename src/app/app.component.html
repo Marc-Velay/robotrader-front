@@ -1,8 +1,16 @@
 <h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-  <a routerLink="/historical">Historical Data</a>
-</nav>
-<router-outlet></router-outlet>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2">
+            <nav>
+              <a routerLink="/dashboard">Dashboard</a>
+              <a routerLink="/heroes">Heroes</a>
+              <a routerLink="/historical">Historical Data</a>
+            </nav>
+            <alert></alert>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
 <app-messages></app-messages>
