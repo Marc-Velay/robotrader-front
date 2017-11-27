@@ -4,12 +4,12 @@ import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { InMemoryDataService }  from './in-memory-data.service';
 
-import { fakeBackendProvider } from './fake-backend';
-import { MockBackend, MockConnection } from '@angular/http/testing';
-import { BaseRequestOptions } from '@angular/http';
+//import { fakeBackendProvider } from './fake-backend';
+//import { MockBackend, MockConnection } from '@angular/http/testing';
+//import { BaseRequestOptions } from '@angular/http';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -54,9 +54,9 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
+    /*HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    ),
+    ),*/
 
 
   ],
@@ -85,9 +85,9 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
         UserService,
 
         // providers used to create fake backend
-        fakeBackendProvider,
+        /*fakeBackendProvider,
         MockBackend,
-        BaseRequestOptions
+        BaseRequestOptions*/
       ],
   bootstrap: [ AppComponent ]
 })

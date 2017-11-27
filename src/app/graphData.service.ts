@@ -19,7 +19,7 @@ function delay(ms: number) {
 @Injectable()
 export class GraphDataService {
 
-  private graphDataUrl = 'api/graphData';  // URL to web api
+  private graphDataUrl = 'localhost:9200/api/Forex/2017/';  // URL to web api
 
   constructor(
     private http: HttpClient,
