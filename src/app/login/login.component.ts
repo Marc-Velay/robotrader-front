@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
                         },
                         error => {
                             this.alertService.error(error);
-        console.log(error);
+                            console.log(error);
                             this.loading = false;
                         });
     }
@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
                 },
                 error => {
                     this.alertService.error(error);
-console.log(error);
                     this.loading = false;
                 });
     }

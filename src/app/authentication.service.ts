@@ -10,7 +10,7 @@ import 'rxjs/add/operator/do'
 import { User } from './users';
 import { MessageService } from './message.service';
 
-
+const loginURL = 'http://86.64.78.32:30000/api/get-token/';
 
 @Injectable()
 export class AuthenticationService {
@@ -19,31 +19,22 @@ export class AuthenticationService {
                 private messageService: MessageService) { }
  
   login(username: string, password: string) {
-        const body = { username: 'user', password: 'picklerick' };
+        const body = { username: username, password: password };
         //return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
-        return this.http.post('http://127.0.0.1:9200/api/get-token/', body)/*.pipe(
-          tap(res => res),
-          do( res => function(res) {
-            let user = res.json();
-            if (user && user.token) {
-                user.firstName = 'User';
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-            }
-
-            return user;
-          })
-        );*/
-
-            .map((response: Response) => {
+        return this.http.post(loginURL, body)
+            .map((user: string) => {
                 // login successful if there's a jwt token in the response
-                let user = response;
-                if (user && user.token) {
+                let userData = JSON.parse(JSON.stringify(user));
+                if (userData) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    userData.username = username;
+                    userData.password = password;
+                    console.log(userData);
+                    localStorage.setItem('currentUser', JSON.stringify(userData));
                 }
+                console.log(JSON.parse(localStorage.getItem('currentUser')));
 
-                return user;
+                return userData;
             });
     }
  
