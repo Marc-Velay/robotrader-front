@@ -19,6 +19,7 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
 import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
+import { MessagesComponent }    from './messages/messages.component';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -30,15 +31,16 @@ import { HistoricalDisplayComponent } from './historical-display/historical-disp
 
 import { HeroService }          from './hero.service';
 import { GraphDataService }          from './graphData.service';
+import { ItemService }          from './items.service';
 import { GraphDataSimpleService }          from './graphDataSimple.service';
 import { MessageService }       from './message.service';
-import { MessagesComponent }    from './messages/messages.component';
 
 import { AlertService }          from './alert.service';
 import { AuthenticationService }          from './authentication.service';
 import { UserService }          from './user.service';
 
 import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 //import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid';
 
@@ -72,7 +74,8 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
     AlertComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PortfolioComponent
   ],
   providers: [
         HeroService,
@@ -83,6 +86,7 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
         AlertService,
         AuthenticationService,
         UserService,
+        ItemService,
 
         // providers used to create fake backend
         /*fakeBackendProvider,

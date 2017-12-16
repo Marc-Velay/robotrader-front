@@ -41,6 +41,27 @@ h4 {
   cursor: pointer;
   color: #607d8b;
 }
+
+
+.itemList {
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.module2 {
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  max-height: 75px;
+  width: 25%;
+  background-color: #607D8B;
+  border-radius: 2px;
+}
+.module2:hover {
+  background-color: #EEE;
+  cursor: pointer;
+  color: #607d8b;
+}
+
 .grid-pad {
   padding: 10px 0;
 }
