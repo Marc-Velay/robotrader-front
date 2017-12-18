@@ -7,6 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
+import { Portfolio } from './portfolio'
 
 
 @Injectable()
@@ -32,6 +33,12 @@ export class PortfolioService {
   getPortfolio(userID: number) {
     const url = `${this.portfolioUrl}/get/${userID}/`;
     return this.http.get(url, this.jwt()).map((response: Response) => response.json());
+  }
+
+  updatePortfolio(portfolio: Portfolio) {
+    const url = `${this.portfolioUrl}/update/${portfolio.id}/`;
+    const body = {"name": portfolio.name};
+    return this.http.put(url, body, this.jwt()).map((response: Response) => response.json());
   }
 
 

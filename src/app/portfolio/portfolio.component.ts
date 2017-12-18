@@ -15,11 +15,14 @@ export class PortfolioComponent implements OnInit {
   currentUser: User;
   portfolio: Portfolio;
 
-  constructor(private portfolioService: PortfolioService) { }
+  constructor(
+    private portfolioService: PortfolioService,
+    private alertService: AlertService
+  ) { }
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.portfolio = this.getPortfolio(this.currentUser.id);
+    this.getPortfolio(this.currentUser.id);
   }
 
 
@@ -30,5 +33,9 @@ export class PortfolioComponent implements OnInit {
           localStorage.setItem('portfolio', JSON.stringify(portfolio));
           console.log(portfolio);
       });
+  }
+  save() {
+    this.portfolioService.updatePortfolio(this.portfolio)
+      .subscribe(() => this.alertService.success('You have successfully updated the portfolio name'));
   }
 }
