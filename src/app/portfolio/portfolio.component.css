@@ -1,0 +1,40 @@
+/* PortfolioComponent's private CSS styles */
+a {
+  text-decoration: none;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+h3 {
+  margin-bottom: 0; padding-left: 10%;
+}
+h4 {
+  position: relative;
+}
+.grid {
+  margin: 0;
+}
+
+
+.itemList {
+  padding-right: 20px;
+  padding-bottom: 20px;
+  white-space: nowrap;
+}
+.module2 {
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  max-height: 75px;
+  width: 25%;
+  background-color: #607D8B;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.module2:hover {
+  background-color: #EEE;
+  cursor: pointer;
+  color: #607d8b;
+}

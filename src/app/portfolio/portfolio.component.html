@@ -1,3 +1,23 @@
-<p>
-  portfolio works!
-</p>
+<div *ngIf="portfolio">
+  <h2>{{ portfolio.name | uppercase }} Details</h2>
+  <!--<div><span>id: </span>{{item.id}}</div>-->
+  <div>
+    <label>Name:
+      <input [(ngModel)]="portfolio.name" placeholder="name"/>
+    </label>
+    <button (click)="save()">save</button>
+  </div>
+  <!--<button (click)="goBack()">go back</button>-->
+
+
+  <div>
+    <h3>Your items:</h3>
+    <a *ngFor="let item of portfolio.items" class="itemList"
+        routerLink="/detail/{{item.id}}">
+      <div class="module2">
+        <h4>{{item.name}}</h4>
+      </div>
+    </a>
+  </div>
+
+</div>

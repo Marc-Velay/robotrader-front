@@ -4,13 +4,6 @@ import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
-//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { InMemoryDataService }  from './in-memory-data.service';
-
-//import { fakeBackendProvider } from './fake-backend';
-//import { MockBackend, MockConnection } from '@angular/http/testing';
-//import { BaseRequestOptions } from '@angular/http';
-
 import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent }         from './app.component';
@@ -20,6 +13,7 @@ import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -34,13 +28,12 @@ import { GraphDataService }          from './graphData.service';
 import { ItemService }          from './items.service';
 import { GraphDataSimpleService }          from './graphDataSimple.service';
 import { MessageService }       from './message.service';
-
 import { AlertService }          from './alert.service';
 import { AuthenticationService }          from './authentication.service';
 import { UserService }          from './user.service';
+import { PortfolioService }          from './portfolio.service';
 
 import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
-import { PortfolioComponent } from './portfolio/portfolio.component';
 
 //import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid';
 
@@ -87,7 +80,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
         AuthenticationService,
         UserService,
         ItemService,
-
+        PortfolioService,
         // providers used to create fake backend
         /*fakeBackendProvider,
         MockBackend,
