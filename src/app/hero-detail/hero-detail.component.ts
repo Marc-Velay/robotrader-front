@@ -8,6 +8,10 @@ import { ItemService }  from '../items.service';
 import { GraphDataPoint } from '../graphDataPoint';
 import { GraphDataService } from '../graphData.service';
 
+import { PortfolioService } from '../portfolio.service';
+
+import { AlertService } from '../alert.service';
+
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -35,7 +39,9 @@ export class HeroDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private itemService: ItemService,
     private location: Location,
-    private graphDataService: GraphDataService
+    private graphDataService: GraphDataService,
+    private portfolioService: PortfolioService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +57,12 @@ export class HeroDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  add() {
+    console.log('clicked');
+    this.portfolioService.addToPortfolio(this.item.id).subscribe(() => this.alertService.success('You have successfully added this item to your portfolio'));
+      console.log('completed');
   }
 
 

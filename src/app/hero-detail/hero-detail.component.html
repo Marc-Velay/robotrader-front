@@ -1,4 +1,6 @@
 <div *ngIf="item">
+  <button (click)="goBack()">go back</button>
+  <button (click)="add()">Add to portfolio</button>
   <h2>{{ item.name | uppercase }} Details</h2>
   <!--<div><span>id: </span>{{item.id}}</div>-->
   <div>
@@ -21,37 +23,11 @@
     <jqxChart #myChart
         [width]="850" [height]="500"
         [title]="'Candlestick Chart'"
-        [description]="'(October 1 00:00 - October 1 01:40)'"
+        [description]="''"
         [enableAnimations]="false" [enableCrosshairs]="true" [animationDuration]="1500"
         [source]="dataAdapter" [xAxis]="xAxis"
         [seriesGroups]="seriesGroups" [colorScheme]="'scheme17'"  [padding]="padding" >
     </jqxChart>
   </div>
 
-  <!--
-    <script>
-      console.log(graphData);
-    </script>
-  <ul class="dataPoints">
-    <li *ngFor="let dataPoint of graphData">
-      <a routerLink="/historical">
-        <span class="badge">{{dataPoint.id}}</span> {{dataPoint.opening}}
-      </a>
-    </li>
-  </ul>
-  -->
-  <!--
-  <jqxChart #myChart
-      [width]="850" [height]="500"
-      [title]="'U.S. Stock Market Index Performance'"
-      [description]="'NASDAQ Composite compared to S&P 500'"
-      [showLegend]="true" [enableAnimations]="true" [padding]="padding"
-      [titlePadding]="titlePadding" [source]="dataAdapter2" [xAxis]="xAxis"
-      [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme04'">
-  </jqxChart>
-  -->
-
-
-  <button (click)="goBack()">go back</button>
-  <!--<button (click)="save()">save</button>-->
 </div>

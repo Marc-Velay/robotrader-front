@@ -1,8 +1,8 @@
 <div *ngIf="portfolio">
-  <h2>{{ portfolio.name | uppercase }} Details</h2>
+  <h2>{{ portfolio.name }} Details</h2>
   <!--<div><span>id: </span>{{item.id}}</div>-->
   <div>
-    <label>Name:
+    <label>Portfolio name:
       <input [(ngModel)]="portfolio.name" placeholder="name"/>
     </label>
     <button (click)="save()">save</button>
@@ -12,12 +12,24 @@
 
   <div>
     <h3>Your items:</h3>
-    <a *ngFor="let item of portfolio.items" class="itemList"
+    <!--<a *ngFor="let item of portfolio.items" class="itemList"
         routerLink="/detail/{{item.id}}">
       <div class="module2">
         <h4>{{item.name}}</h4>
       </div>
     </a>
-  </div>
+    <button class="delete" title="delete item"
+    (click)="delete(item)">x</button>
+  </div>-->
+
+  <ul class="items">
+    <li *ngFor="let item of portfolio.items">
+      <a routerLink="/detail/{{item.id}}">
+        <span class="badge">{{item.id}}</span> {{item.name}}
+      </a>
+      <button class="delete" title="delete item"
+      (click)="delete(item)">x</button>
+    </li>
+  </ul>
 
 </div>

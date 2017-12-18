@@ -12,7 +12,7 @@ import { Portfolio } from './portfolio'
 
 @Injectable()
 export class PortfolioService {
-
+  portfolio: Portfolio;
   private portfolioUrl = 'http://86.64.78.32:30000/api/portfolio';  // URL to web api
 
   constructor(
@@ -20,15 +20,6 @@ export class PortfolioService {
     private http: Http,
     private messageService: MessageService) { }
 
-  /** GET heroes from the server */
-  /*getGraphData (): Observable<GraphDataPoint[]> {
-
-    return this.http.get<GraphDataPoint[]>(this.graphDataUrl)
-      .pipe(
-        tap(graphData => this.log(`fetched data`)),
-        catchError(this.handleError('getGraphData', []))
-      );
-  }*/
 
   getPortfolio(userID: number) {
     const url = `${this.portfolioUrl}/get/${userID}/`;
@@ -41,6 +32,40 @@ export class PortfolioService {
     return this.http.put(url, body, this.jwt()).map((response: Response) => response.json());
   }
 
+
+  addToPortfolio(itemID: number) {
+    const url = `${this.portfolioUrl}/item/link/${itemID}/`;
+    if(!localStorage.getItem('portfolio')) {
+      this.getPortfolio(JSON.parse(localStorage.getItem('currentUser')))
+      .subscribe(portfolio => {
+          this.portfolio = portfolio;
+          localStorage.setItem('portfolio', JSON.stringify(portfolio));
+          const body = { "id": this.portfolio.id };
+          return this.http.post(url, body, this.jwt()).map((response: Response) => response.json());
+      });
+    } else {
+      this.portfolio = JSON.parse(localStorage.getItem('portfolio'));
+      const body = { "id": this.portfolio.id };
+      return this.http.post(url, body, this.jwt()).map((response: Response) => response.json());
+    }
+  }
+
+  removeFromPortfolio(itemID: number) {
+    const url = `${this.portfolioUrl}/item/remove/${itemID}/`;
+    if(!localStorage.getItem('portfolio')) {
+      this.getPortfolio(JSON.parse(localStorage.getItem('currentUser')))
+      .subscribe(portfolio => {
+          this.portfolio = portfolio;
+          localStorage.setItem('portfolio', JSON.stringify(portfolio));
+          const body = { "id": this.portfolio.id };
+          return this.http.post(url, body, this.jwt()).map((response: Response) => response.json());
+      });
+    } else {
+      this.portfolio = JSON.parse(localStorage.getItem('portfolio'));
+      const body = { "id": this.portfolio.id };
+      return this.http.post(url, body, this.jwt()).map((response: Response) => response.json());
+    }
+  }
 
   /**
    * Handle Http operation that failed.

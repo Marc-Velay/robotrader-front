@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from '../users';
+import { Item } from '../item';
 import { Portfolio } from '../portfolio';
 import { AlertService } from '../alert.service';
 import { PortfolioService } from '../portfolio.service';
@@ -26,7 +27,7 @@ export class PortfolioComponent implements OnInit {
   }
 
 
-  getPortfolio(userId: number): void {
+  getPortfolio(userId: number) {
     this.portfolioService.getPortfolio(userId)
       .subscribe(portfolio => {
           this.portfolio = portfolio;
@@ -37,5 +38,15 @@ export class PortfolioComponent implements OnInit {
   save() {
     this.portfolioService.updatePortfolio(this.portfolio)
       .subscribe(() => this.alertService.success('You have successfully updated the portfolio name'));
+  }
+
+
+  delete(item:Item) {
+    this.portfolioService.removeFromPortfolio(item.id)
+      .subscribe(() => {
+        this.alertService.success('You have successfully deleted this item from your portfolio'));
+        this.getPortfolio(this.currentUser.id);
+        this.portfolio = JSON.parse(localStorage.getItem('portfolio'));
+      }
   }
 }

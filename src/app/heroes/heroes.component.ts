@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { Item } from '../item';
+import { ItemService } from '../items.service';
 
 @Component({
   selector: 'app-heroes',
@@ -9,19 +9,24 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
+  items: Item[] = [];
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private itemService: ItemService
+  ) { }
 
   ngOnInit() {
-    this.getHeroes();
+    this.getItems();
   }
 
-  getHeroes(): void {
-    this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
-  }
 
+  getItems(): void {
+    this.itemService.getItems()
+      .subscribe(items => {
+          this.items = items;
+      });
+  }
+/*
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
@@ -31,9 +36,9 @@ export class HeroesComponent implements OnInit {
       });
   }
 
-  delete(hero: Hero): void {
+  delete(item: Item): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe();
   }
-
+*/
 }
