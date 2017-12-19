@@ -1,0 +1,29 @@
+<div *ngIf="item">
+  <button (click)="goBack()">go back</button>
+  <button (click)="add()">Add to portfolio</button>
+  <h2>{{ item.name | uppercase }} Details</h2>
+  <div>
+    <label>id: {{ item.id }}
+    </label>
+  </div>
+  <div>
+    <label>source: {{ item.source }}
+    </label>
+  </div>
+  <div>
+    <label>instance type: {{ item.inst_type }}
+    </label>
+  </div>
+
+  <div *ngIf="graphData">
+    <jqxChart #myChart
+        [width]="850" [height]="500"
+        [title]="'Candlestick Chart'"
+        [description]="''"
+        [enableAnimations]="false" [enableCrosshairs]="true" [animationDuration]="1500"
+        [source]="dataAdapter" [xAxis]="xAxis"
+        [seriesGroups]="seriesGroups" [colorScheme]="'scheme17'"  [padding]="padding" >
+    </jqxChart>
+  </div>
+
+</div>
