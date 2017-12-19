@@ -44,9 +44,9 @@ export class PortfolioComponent implements OnInit {
   delete(item:Item) {
     this.portfolioService.removeFromPortfolio(item.id)
       .subscribe(() => {
-        this.alertService.success('You have successfully deleted this item from your portfolio'));
+        this.alertService.success('You have successfully deleted this item from your portfolio');
         this.getPortfolio(this.currentUser.id);
         this.portfolio = JSON.parse(localStorage.getItem('portfolio'));
-      }
+      });
   }
 }
