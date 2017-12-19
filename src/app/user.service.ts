@@ -4,7 +4,8 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { User } from './users';
 
 
-const userURL = 'http://86.64.78.32:30000/api/users/';
+//const userURL = 'http://86.64.78.32:30000/api/users/';
+const userURL = 'http://10.8.176.101:30000/api/users/';
 
 @Injectable()
 export class UserService {

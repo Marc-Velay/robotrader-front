@@ -13,7 +13,8 @@ import { MessageService } from './message.service';
 @Injectable()
 export class ItemService {
 
-  private itemUrl = 'http://86.64.78.32:30000/api/items/';  // URL to web api
+  //private itemUrl = 'http://86.64.78.32:30000/api/items/';  // URL to web api
+  private itemUrl = 'http://10.8.176.101:30000/api/items/';  // URL to web api
 
   constructor(
     private http: Http,

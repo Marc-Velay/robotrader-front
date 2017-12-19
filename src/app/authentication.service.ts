@@ -10,7 +10,8 @@ import 'rxjs/add/operator/do'
 import { User } from './users';
 import { MessageService } from './message.service';
 
-const loginURL = 'http://86.64.78.32:30000/api/get-token/';
+//const loginURL = 'http://86.64.78.32:30000/api/get-token/';
+const loginURL = 'http://10.8.176.101:30000/api/get-token/';
 
 @Injectable()
 export class AuthenticationService {

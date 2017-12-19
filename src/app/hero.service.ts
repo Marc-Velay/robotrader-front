@@ -15,7 +15,8 @@ const httpOptions = {
 @Injectable()
 export class HeroService {
 
-  private heroesUrl = 'http://86.64.78.32:30000/api/items/';  // URL to web api
+  //private heroesUrl = 'http://86.64.78.32:30000/api/items/';  // URL to web api  
+  private heroesUrl = 'http://10.8.176.101:30000/api/items/';
 
   constructor(
     private http: HttpClient,
