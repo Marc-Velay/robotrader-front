@@ -1,10 +1,10 @@
 {
-  "name": "angular-quickstart",
+  "name": "Robotrading",
   "version": "1.0.0",
   "engines": {
     "node": "6.11.5"
   },
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Online trend prediction tool",
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",

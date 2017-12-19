@@ -20,23 +20,12 @@ function delay(ms: number) {
 @Injectable()
 export class GraphDataService {
 
-  //private graphDataUrl = 'http://86.64.78.32:30000/api/Forex/2017/';  // URL to web api 
-  private graphDataUrl = 'http://10.8.176.101:30000/api/Forex/2017/';
+  private graphDataUrl = 'http://86.64.78.32:30000/api/Forex/2017/';  // URL to web api
 
   constructor(
-    //private http: HttpClient,
     private http: Http,
     private messageService: MessageService) { }
 
-  /** GET heroes from the server */
-  /*getGraphData (): Observable<GraphDataPoint[]> {
-
-    return this.http.get<GraphDataPoint[]>(this.graphDataUrl)
-      .pipe(
-        tap(graphData => this.log(`fetched data`)),
-        catchError(this.handleError('getGraphData', []))
-      );
-  }*/
 
   getGraphData() {
     return this.http.get(this.graphDataUrl, this.jwt()).map((response: Response) => response.json());
@@ -63,7 +52,6 @@ export class GraphDataService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add('GraphDataService: ' + message);
   }

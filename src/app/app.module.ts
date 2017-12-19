@@ -9,9 +9,8 @@ import { AppRoutingModule }     from './app-routing.module';
 import { AppComponent }         from './app.component';
 
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
-import { HeroesComponent }      from './heroes/heroes.component';
-import { HeroSearchComponent }  from './hero-search/hero-search.component';
+import { ItemsComponent }      from './items/items.component';
+import { ItemDetailComponent }      from './item-detail/item-detail.component';
 import { MessagesComponent }    from './messages/messages.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 
@@ -23,10 +22,8 @@ import { AuthGuard } from './auth.guard';
 
 import { HistoricalDisplayComponent } from './historical-display/historical-display.component';
 
-import { HeroService }          from './hero.service';
 import { GraphDataService }          from './graphData.service';
 import { ItemService }          from './items.service';
-import { GraphDataSimpleService }          from './graphDataSimple.service';
 import { MessageService }       from './message.service';
 import { AlertService }          from './alert.service';
 import { AuthenticationService }          from './authentication.service';
@@ -58,10 +55,9 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeroesComponent,
-    HeroDetailComponent,
+    ItemsComponent,
+    ItemDetailComponent,
     MessagesComponent,
-    HeroSearchComponent,
     HistoricalDisplayComponent,
     jqxChartComponent,
     AlertComponent,
@@ -71,10 +67,8 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
     PortfolioComponent
   ],
   providers: [
-        HeroService,
         MessageService,
         GraphDataService,
-        GraphDataSimpleService,
         AuthGuard,
         AlertService,
         AuthenticationService,

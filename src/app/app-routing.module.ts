@@ -2,8 +2,8 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroesComponent }      from './heroes/heroes.component';
-import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
+import { ItemsComponent }      from './items/items.component';
+import { ItemDetailComponent }  from './item-detail/item-detail.component';
 import { HistoricalDisplayComponent }  from './historical-display/historical-display.component';
 import { PortfolioComponent }  from './portfolio/portfolio.component';
 
@@ -16,8 +16,8 @@ const routes: Routes = [
   //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'portfolio', component: PortfolioComponent, canActivate: [AuthGuard] },
-  { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard] },
-  { path: 'items', component: HeroesComponent, canActivate: [AuthGuard] },
+  { path: 'detail/:id', component: ItemDetailComponent, canActivate: [AuthGuard] },
+  { path: 'items', component: ItemsComponent, canActivate: [AuthGuard] },
   { path: 'historical', component: HistoricalDisplayComponent, canActivate: [AuthGuard] },
 
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },

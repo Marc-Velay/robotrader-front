@@ -13,8 +13,7 @@ import { Portfolio } from './portfolio'
 @Injectable()
 export class PortfolioService {
   portfolio: Portfolio;
-  //private portfolioUrl = 'http://86.64.78.32:30000/api/portfolio';  // URL to web api
-  private portfolioUrl = 'http://10.8.176.101:30000/api/portfolio';
+  private portfolioUrl = 'http://86.64.78.32:30000/api/portfolio';  // URL to web api
 
   constructor(
     //private http: HttpClient,
@@ -88,7 +87,6 @@ export class PortfolioService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add('PortfolioService: ' + message);
   }

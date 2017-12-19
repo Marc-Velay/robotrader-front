@@ -28,16 +28,6 @@ export class LoginComponent implements OnInit {
  
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        /*this.authenticationService.login('user', 'picklerick')
-                    .subscribe(
-                        data => {
-                            this.router.navigate([this.returnUrl]);
-                        },
-                        error => {
-                            this.alertService.error(error);
-                            console.log(error);
-                            this.loading = false;
-      });*/
     }
  
     login() {
@@ -48,7 +38,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.alertService.error('Login error, retry');
                     this.loading = false;
                 });
     }

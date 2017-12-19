@@ -1,14 +1,14 @@
-<h3>Top Heroes</h3>
+<h3>Top Items</h3>
 <div class="grid grid-pad">
   <a *ngFor="let item of topItems" class="col-1-4"
       routerLink="/detail/{{item.id}}">
-    <div class="module hero">
+    <div class="module item">
       <h4>{{item.name}}</h4>
     </div>
   </a>
 </div>
 <br>
-<app-hero-search></app-hero-search>
+<h2>List of available items:</h2>
 
 <div>
   <a *ngFor="let item of items" class="itemList"
