@@ -21,12 +21,13 @@ export class PortfolioComponent implements OnInit {
     private alertService: AlertService
   ) { }
 
+  //Load the portfolio for the current user upon initialising page
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.getPortfolio(this.currentUser.id);
   }
 
-
+  //Load the portfolio using user ID, then store it so we dont query again
   getPortfolio(userId: number) {
     this.portfolioService.getPortfolio(userId)
       .subscribe(portfolio => {
@@ -35,12 +36,13 @@ export class PortfolioComponent implements OnInit {
           console.log(portfolio);
       });
   }
+  //Save the new name of the portfolio, then display success message.
   save() {
     this.portfolioService.updatePortfolio(this.portfolio)
       .subscribe(() => this.alertService.success('You have successfully updated the portfolio name'));
   }
 
-
+  //Remove an item from the portfolio, then redisplay the portfolio item list 
   delete(item:Item) {
     this.portfolioService.removeFromPortfolio(item.id)
       .subscribe(() => {

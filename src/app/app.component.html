@@ -4,13 +4,16 @@
     <div class="container">
         <div class="col-sm-8 col-sm-offset-2">
             <nav>
+              <!-- displayed on every page: this is the main nav bar -->
               <a routerLink="/dashboard">Dashboard</a>
               <a routerLink="/portfolio">Portfolio</a>
               <a routerLink="/items">List of items</a>
               <a routerLink="/historical">Historical Data</a>
               <a routerLink="/login">Logout</a>
             </nav>
+            <!-- Display errors here -->
             <alert></alert>
+            <!-- Display the main components here. Selected based on router -->
             <router-outlet></router-outlet>
         </div>
     </div>

@@ -1,3 +1,4 @@
+//Basic info for each data point we use in the graphs.
 export class GraphDataPoint {
   id: number;
   name: string;

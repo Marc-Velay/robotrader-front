@@ -15,11 +15,12 @@ export class ItemsComponent implements OnInit {
     private itemService: ItemService
   ) { }
 
+  //Load item list from database on page load.
   ngOnInit() {
     this.getItems();
   }
 
-
+  //Use the item service to query the list. Then save them to local variable.
   getItems(): void {
     this.itemService.getItems()
       .subscribe(items => {

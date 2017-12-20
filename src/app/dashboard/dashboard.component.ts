@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private itemService: ItemService) { }
 
+  //Load items on page load
   ngOnInit() {
     this.getItems();
   }
@@ -21,7 +22,7 @@ export class DashboardComponent implements OnInit {
     this.itemService.getItems()
       .subscribe(items => {
           this.items = items;
-          this.topItems = items.slice(0, 5);
+          this.topItems = items.slice(0, 5); //Keep the first 5 items as the "top" items
       });
   }
 }

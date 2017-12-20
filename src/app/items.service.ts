@@ -19,11 +19,15 @@ export class ItemService {
     private http: Http,
     private messageService: MessageService) { }
 
+  //Get the list of items the database has.
+  //Send a jwt token to make sure the user has access to this information.
+  //Erros are handled on caller.
   getItems() {
     return this.http.get(this.itemUrl, this.jwt()).map((response: Response) => response.json());
   }
 
-
+  //Get a specific item using its ID.
+  //Erros are handled on caller.
   getItem(id: number) {
     const url = `${this.itemUrl}${id}/`;
     return this.http.get(url, this.jwt()).map((response: Response) => response.json());

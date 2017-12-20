@@ -55,10 +55,12 @@ export class ItemDetailComponent implements OnInit {
       .subscribe(item => this.item = item);
   }
 
+  //Go back to where the item was clicked to
   goBack(): void {
     this.location.back();
   }
 
+  //Add the clicked item to the portfolio
   add() {
     console.log('clicked');
     this.portfolioService.addToPortfolio(this.item.id).subscribe(() => this.alertService.success('You have successfully added this item to your portfolio'));
@@ -93,12 +95,13 @@ export class ItemDetailComponent implements OnInit {
 
     padding: any = { left: 5, top: 5, right: 5, bottom: 5 };
 
+    //Wraps the info regarding axies
     xAxis: any =
     {
         dataField: 'timestamp',
         labels: {
             formatFunction: (value) => {
-                return value.getHours() + ':' + value.getMinutes(); //value.getDate() + '-' + this.months[value.getMonth()] + '\'' + value.getFullYear().toString().substring(2);
+                return value.getHours() + ':' + value.getMinutes();
             }
         },
         type: 'date',
@@ -115,12 +118,13 @@ export class ItemDetailComponent implements OnInit {
             labels:
             {
                 formatFunction: (value: any) => {
-                    return value;//this.months[value.getMonth()] + '\'' + value.getFullYear().toString().substring(2);
+                    return value;
                 }
             }
         }
     };
 
+    //variable that wraps all the info used inside the candlechart graph.
     seriesGroups: any[] =
     [
         {

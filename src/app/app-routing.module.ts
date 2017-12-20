@@ -13,14 +13,14 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }, // can activate checks if the user is locked in, otherwise it redirects to login page.
   { path: 'portfolio', component: PortfolioComponent, canActivate: [AuthGuard] },
   { path: 'detail/:id', component: ItemDetailComponent, canActivate: [AuthGuard] },
   { path: 'items', component: ItemsComponent, canActivate: [AuthGuard] },
   { path: 'historical', component: HistoricalDisplayComponent, canActivate: [AuthGuard] },
 
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  //{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 

@@ -32,8 +32,6 @@ import { PortfolioService }          from './portfolio.service';
 
 import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
 
-//import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid';
-
 
 @NgModule({
   imports: [
@@ -42,15 +40,6 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
-
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    /*HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),*/
-
-
   ],
   declarations: [
     AppComponent,
@@ -74,11 +63,7 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
         AuthenticationService,
         UserService,
         ItemService,
-        PortfolioService,
-        // providers used to create fake backend
-        /*fakeBackendProvider,
-        MockBackend,
-        BaseRequestOptions*/
+        PortfolioService
       ],
   bootstrap: [ AppComponent ]
 })

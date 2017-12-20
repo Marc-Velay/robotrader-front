@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
                 data => {
+                    //Go to return url, which user tried to access without being logged in
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {

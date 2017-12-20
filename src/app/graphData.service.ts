@@ -9,14 +9,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { GraphDataPoint } from './graphDataPoint';
 import { MessageService } from './message.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
-function delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 @Injectable()
 export class GraphDataService {
 
@@ -27,6 +19,9 @@ export class GraphDataService {
     private messageService: MessageService) { }
 
 
+  //Query the database for the item's data.
+  //TODO: the url should be constructed using the item name instead of Forex. Limited data implied taking a shortcut for the moment.
+  //Send jwt token to identify user and make sure he has authorization to query data.
   getGraphData() {
     return this.http.get(this.graphDataUrl, this.jwt()).map((response: Response) => response.json());
   }
